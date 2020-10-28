@@ -12,7 +12,9 @@ function Login(props) {
     let user_input       = React.createRef();
     let password_input   = React.createRef();
 
-    // Toto je test
+    // Toto je test - tady urcite
+
+    // Tady budou asi konflikty
 
     function login(e) 
     {    
