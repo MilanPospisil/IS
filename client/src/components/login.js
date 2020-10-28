@@ -12,8 +12,6 @@ function Login(props) {
     let user_input       = React.createRef();
     let password_input   = React.createRef();
 
-    // Toto je test branche Test!!!!!
-
     function login(e) 
     {    
         e.preventDefault();    
