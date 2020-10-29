@@ -17,6 +17,8 @@ function Login(props) {
     // Tady budou asi konflikty
     // konflikt
 
+    // Nejake sracky!!!!!!!
+
 
     function login(e) 
     {    
