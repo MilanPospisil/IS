@@ -16,6 +16,8 @@ function Login(props) {
 
     // Tady budou asi konflikty
 
+    // Novy radek!
+    
     function login(e) 
     {    
         e.preventDefault();    
