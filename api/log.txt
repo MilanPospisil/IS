@@ -1,0 +1,16 @@
+SELECT * FROM user WHERE user = $1 AND password = $2
+arkanus@seznam.cz,sha1$4b210ce1$1$880898fb6999693d56c8fd71ae2fda56c186cae3
+SELECT * FROM user WHERE user = $1 AND password = $2
+arkanus@seznam.cz,sha1$c88ae0d4$1$018286db1607d9cf199d2ca73ab2b62613d06bc4
+Failed: SELECT * FROM user WHERE user = $1 AND password = $2
+SELECT * FROM user WHERE user = $1 AND password = $2
+arkanus@seznam.cz,sha1$60cbdc7a$1$41294c1ae2bfc4a2bda408ebdc8ea7b4adef80f9
+SELECT * FROM user WHERE user = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Failed: SELECT * FROM user WHERE user = $1 AND password = $2
+SELECT * FROM user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Failed: SELECT * FROM user WHERE name = $1 AND password = $2
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2

@@ -4,34 +4,32 @@ fs = require('fs');
 
 class Func
 {
-	static client;
-
 	static json(res, obj)
 	{
 		res.send(JSON.stringify(obj, null, 4));
 	}
 
-	static queryAndSend(sql, params, res)
+	static queryAndSend(client, sql, params, res)
 	{
-		return Func.query(Func.client, sql, params)
+		return Func.query(client, sql, params)
 		.then(data =>
 		{
 			res.send(data.rows);		
 		});		
 	}
 
-	static queryAndSendOne(sql, params, res)
+	static queryAndSendOne(client, sql, params, res)
 	{
-		return Func.query(Func.client, sql, params)
+		return Func.query(client, sql, params)
 		.then(data =>
 		{
 			res.send(data.rows[0]);		
 		});		
 	}
 
-	static query_JSON_and_send(sql, params, res)
+	static query_JSON_and_send(client, sql, params, res)
 	{
-		return Func.query(Func.client, sql, params)
+		return Func.query(client, sql, params)
 		.then(data =>
 		{
 			var field_name = data.fields[0].name;

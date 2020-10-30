@@ -12,14 +12,6 @@ function Login(props) {
     let user_input       = React.createRef();
     let password_input   = React.createRef();
 
-
-    // Toto je test - tady urcite,  konflikt jako prase
-    // Tady budou asi konflikty
-    // konflikt
-
-    // Nejake sracky!!!!!!! Dalsi sracky!!!!!
-
-
     function login(e) 
     {    
         e.preventDefault();    

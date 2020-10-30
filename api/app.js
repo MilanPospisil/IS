@@ -9,6 +9,10 @@ var sessionstore = require('sessionstore');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var {connection} = require('./connection.js');
+
+connection.connect();
+
 var app = express();
 
 // view engine setup
