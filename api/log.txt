@@ -14,3 +14,6 @@ Failed: SELECT * FROM user WHERE name = $1 AND password = $2
 SELECT * FROM app_user WHERE name = $1 AND password = $2
 arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
 Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
