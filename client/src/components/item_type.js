@@ -7,12 +7,12 @@ import _ from 'lodash';
 
 import ClientFunc from '../clientFunc.js';
 
-function Item_types(props) {
+function Item_type(props) {
     return (
-        <div className="item_types">
+        <div className="item_type">
             
         </div>
     );
 }
 
-export default Item_types;
+export default Item_type;
