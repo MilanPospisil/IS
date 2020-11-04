@@ -15,13 +15,13 @@ router.get('/get_user', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-  
   Users.login(client(), req.body.user, req.body.password)
   .then(a => {
-    if (a == true)
+    if (a)
     {
       req.session.user = req.body.user;
-      Func.json(res, {success : true, user: req.session.user});
+      req.session.role = a.role;
+      Func.json(res, {success : true, user: req.session.user, role: req.session.role});
     }else
     {
       Func.json(res, {success : false});
