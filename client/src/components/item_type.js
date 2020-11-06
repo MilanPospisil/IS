@@ -8,6 +8,7 @@ import _ from 'lodash';
 import ClientFunc from '../clientFunc.js';
 
 function Item_type(props) {
+
     return (
         <div className="item_type">
             

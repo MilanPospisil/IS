@@ -15,10 +15,12 @@ class Entity_ops {
         for(e in Entity_ops.entity_names)
         {
             var e = Entity_ops.entity_names[e];
-            e = e.toLowerCase();
-            var path = "./" + e + ".js";
+            var e2 = e.toLowerCase();
+            var path = "./" + e2 + ".js";
             console.log("loading path " + path);
-            this.entities[e] = require(path);
+            var lib = require(path);
+            var ent = lib[e];
+            this.entities[e] = ent;
         }
     }
 
@@ -34,12 +36,14 @@ class Entity_ops {
         var entity_name = params["entity_name"];
         var entity_operation = params["entity_operation"];
         var query = params["query"];
+        if (!query) query = {};
 
         // validate entity name
         if (!Entity_ops.entity_names.includes(entity_name))
         {
             var obj = {success : false, error : "entity name not found"};
             Func.json(res, obj);
+            return;
         }
 
         // load entity
@@ -50,6 +54,7 @@ class Entity_ops {
         {
             var obj = {success : false, error : "entity operation not found"};
             Func.json(res, obj);
+            return;
         }
 
         // run op

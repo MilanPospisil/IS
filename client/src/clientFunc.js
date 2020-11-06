@@ -23,9 +23,14 @@ class ClientFunc
         return axios.get("http://" + ClientFunc.host + ":" + ClientFunc.port + path, { withCredentials: true });
     }
 
-    static readData(path, setFunc)
+    static readData(path, setFunc, method)
     {
-        ClientFunc.get(path)
+        if (method == null) method = "get";
+
+        var m_f = ClientFunc.get;
+        if (method == "post") m_f = ClientFunc.post; 
+
+        m_f(path)
         .then(function (response) {
             setFunc(response.data);
         })
@@ -34,14 +39,23 @@ class ClientFunc
         });
     }
 
-    static readUseEffect(path, setFunc, dependencies, allowed)
+    static readUseEffect(path, setFunc, dependencies, allowed, method)
     {
+        // this is because of linter
         var a = useEffect;
         a(
             () => {
-              if (allowed) ClientFunc.readData(path, setFunc);     
+              if (allowed) ClientFunc.readData(path, setFunc, method);     
             },
             dependencies);
+    }
+
+    static entity_op(setFunc, dependencies, allowed, entity_name, entity_operation, query, method)
+    {
+        
+        var path = "/entity?entity_name="+entity_name+"&entity_operation="+entity_operation;
+        if (query) path += "&query="+query;
+        this.readUseEffect(path, setFunc, dependencies, allowed, method);
     }
 }
 

@@ -22,8 +22,14 @@ class Filter {
             //var filter = query.filter;    // TODO
 
             // check select
-            if (select.length == 0) {
-                return { success: false, error: "you must select at least one column" }
+            if (select == null || select.length == 0) {
+                // add all columns
+                select = [];
+                for (var f in entity_schema.fields)
+                {
+                    var f = entity_schema.fields[f];
+                    select.push(f);
+                }
             }
 
             for (var c in select) {
@@ -64,10 +70,10 @@ class Filter {
             }
 
             // inner query
-            sql += " FROM (" + inner_query + ")";
+            sql += " FROM (" + inner_query + ") AS core ";
 
             // build order by
-            if (order_by) {
+            if (order_by && order_by.length > 0) {
                 sql += " ORDER BY ";
                 for (var c in order_by) {
                     if (c > 0) sql += ", ";

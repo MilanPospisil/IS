@@ -11,7 +11,7 @@ class Users {
         .then(a => {
             if (a.rows.length > 0)
             {
-                return {role : a.rows[0]["role"]};
+                return {role : a.rows[0]["role"], user : a.rows[0]["name"], user_name : a.rows[0]["full_name"]};
             }else
             {
                 return false;

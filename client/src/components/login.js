@@ -26,9 +26,13 @@ function Login(props) {
             if (response.data.success)
             {
               props.set_user(response.data.user);
+              props.set_user_name(response.data.user_name);
+              props.set_role(response.data.role);
             }else
             {
               props.set_user(null);
+              props.set_role(null);
+              props.set_user_name(null);
             }
           })
           .catch(function (error) {
@@ -42,6 +46,8 @@ function Login(props) {
         )
         .then(function (response) {          
           props.set_user(null);
+          props.set_role(null);
+          props.set_user_name(null);
         })
         .catch(function (error) {
           alert(error);

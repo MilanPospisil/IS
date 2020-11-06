@@ -13,4 +13,4 @@ class Item_type {
 }
 
 
-module.exports.Item_Type = Item_type;
+module.exports.Item_type = Item_type;

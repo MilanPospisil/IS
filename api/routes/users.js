@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/get_user', function(req, res, next) {
-  Func.json(res, {user : req.session.user, user_name : req.session.user_name} );
+  Func.json(res, {user : req.session.user, user_name : req.session.user_name, role : req.session.role} );
 });
 
 router.post('/login', function(req, res, next) {
@@ -21,7 +21,8 @@ router.post('/login', function(req, res, next) {
     {
       req.session.user = req.body.user;
       req.session.role = a.role;
-      Func.json(res, {success : true, user: req.session.user, role: req.session.role});
+      req.session.user_name = a.user_name;
+      Func.json(res, {success : true, user: req.session.user, role: req.session.role, user_name : req.session.user_name});
     }else
     {
       Func.json(res, {success : false});
