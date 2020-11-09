@@ -123,6 +123,19 @@ class Func
 */
 		return Func.query(client, sql, i.params);
 	}
+
+	static deleteData(client, tableName, whereSql, params)
+    {
+        var sql = "DELETE FROM " + tableName + " ";
+		whereSql = i.convertQuery(whereSql);
+		sql += " " + whereSql;
+		return Func.query(client, sql, params);
+	}
+
+	static deleteOne(client, table_name, id_name)
+	{
+		return Func.deleteData(client, data, table_name, "WHERE id_name = $1", [data[id_name]]);
+	}
 	
 	static updateData(client, data, tableName, whereSql, params)
     {
@@ -151,7 +164,12 @@ class Func
 		Func.log(i.params);
 */
 		return Func.query(client, sql, i.params);
-    }
+	}
+	
+	static updateOne(client, data, table_name, id_name)
+	{
+		return Func.updateData(client, data, table_name, "WHERE id_name = $1", [data[id_name]]);
+	}
 	
 	static log(text)
 	{

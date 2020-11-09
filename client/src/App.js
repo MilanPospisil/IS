@@ -32,8 +32,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Login user={user} user_name={user_name} role={role} set_user={set_user} set_role={set_role} set_user_name={set_user_name}></Login>
-        {user_name} <Item_types></Item_types>
       </header>
+      <Item_types></Item_types>
     </div>
   );
 }

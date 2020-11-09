@@ -14,7 +14,7 @@ function Item_types(props) {
     
     return (
         <div className="item_types">
-            
+            Item Types!!!!
         </div>
     );
 }

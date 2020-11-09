@@ -25,16 +25,16 @@ class Filter {
             if (select == null || select.length == 0) {
                 // add all columns
                 select = [];
-                for (var f in entity_schema.fields)
+                for (var f in entity_schema)
                 {
-                    var f = entity_schema.fields[f];
+                    var f = entity_schema[f];
                     select.push(f);
                 }
             }
 
             for (var c in select) {
                 c = select[c];
-                if (!entity_schema.fields.includes(c)) {
+                if (!entity_schema[c]) {
                     return { success: false, error: "field " + s + " is not in entity schema." };
                 }
             }
@@ -45,7 +45,7 @@ class Filter {
             for (var c in order_by) {
                 c = order_by[c];
                 if (c[0] == '-') c = c.substring(1, c.length);
-                if (!entity_schema.fields.includes(c)) {
+                if (!entity_schema[c]) {
                     return { success: false, error: "field " + s + " is not in entity schema." };
                 }
             }
@@ -110,7 +110,7 @@ class Filter {
             return Func.query(client, sql, inner_params)
             .then((res) => 
             {
-                return { success: true, data : res.rows };
+                return res;
             });
         }
         catch (err) {

@@ -1,16 +1,33 @@
-const {Func} = require("../func.js");
-const {Filter} = require("../filter.js");
+const { Func } = require("../func.js");
+const { Filter } = require("../filter.js");
+const { Error } = require("../error.js");
+const { Entity_ops } = require("./entity_ops.js");
 
 class Item_type {
-    static ops = ["get"];
-    static entity_schema = {fields : ["name", "is_sellable", "id", "amount_type", "buy_cost", "sell_price"]};
+    ops = ["metadata", "get", "update", "insert", "delete"];
+    fields = new Item_type_fields();
 
-    static get(client, user, user_role, query)
-    {
+    get(client, user, user_role, query, post) {
+        if (user_role != "admin") return Error.no_privilleges();
         var inner_query = "SELECT * FROM item_type";
-        return Filter.filter(client, query,  inner_query, [], Item_type.entity_schema);      
+        return Filter.filter(client, query, inner_query, [], Item_type.fields);
+    }
+
+    update(client, user, user_role, query, post) {
+        if (user_role != "admin") return Error.no_privilleges();
+        return Func.updateOne(client, post, "item_type", "id");
+    }
+
+    insert(client, user, user_role, query, post) {
+        if (user_role != "admin") return Error.no_privilleges();
+        return Func.insertData(client, post, "item_type");
+    }
+
+    delete(client, user, user_role, query) {
+        if (user_role != "admin") return Error.no_privilleges();
+        return Func.deleteOne(client, "item_type", "id");
     }
 }
 
 
-module.exports.Item_type = Item_type;
+module.exports.Item_type = new Item_type();

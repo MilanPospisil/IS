@@ -21,6 +21,9 @@ class Entity_ops {
             var lib = require(path);
             var ent = lib[e];
             this.entities[e] = ent;
+
+            // create if available
+            if (ent.create) ent.create();
         }
     }
 
@@ -58,11 +61,17 @@ class Entity_ops {
         }
 
         // run op
-        return Entity[entity_operation](client, user, role, query)
+        Entity[entity_operation](client, user, role, query)
         .then(a => 
-        {   
-            var obj = {success : true, data : a.rows};
-            Func.json(res, obj); 
+        {  
+            if (a.error)
+            {
+                Func.json(res, a);
+            }else
+            {
+                var obj = {success : true, data : a.rows, metadata : a.fields};
+                Func.json(res, obj); 
+            }
         })
         .catch(err =>
         {
