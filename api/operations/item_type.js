@@ -2,10 +2,11 @@ const { Func } = require("../func.js");
 const { Filter } = require("../filter.js");
 const { Error } = require("../error.js");
 const { Entity_ops } = require("./entity_ops.js");
+const { model } = require("./../model/model.js");
+
 
 class Item_type {
     ops = ["metadata", "get", "update", "insert", "delete"];
-    fields = new Item_type_fields();
 
     get(client, user, user_role, query, post) {
         if (user_role != "admin") return Error.no_privilleges();
@@ -27,7 +28,13 @@ class Item_type {
         if (user_role != "admin") return Error.no_privilleges();
         return Func.deleteOne(client, "item_type", "id");
     }
+
+    metadata(client, user, user_role)
+    {
+        if (user_role != "admin") return Error.no_privilleges();
+        return Promise.resolve(model.entities.item_type);    
+    }
 }
 
 
-module.exports.Item_type = new Item_type();
+module.exports.item_type = new Item_type();

@@ -110,7 +110,7 @@ class Filter {
             return Func.query(client, sql, inner_params)
             .then((res) => 
             {
-                return res;
+                return res.rows;
             });
         }
         catch (err) {

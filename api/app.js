@@ -16,7 +16,7 @@ const {Model_db} = require("./model_db.js");
 const {model} = require("./model/model.js");
 
 connection.connect();
-Model_db.synchronizeModel(model, connection.client);
+//Model_db.synchronizeModel(model, connection.client);
 
 var app = express();
 

@@ -32,7 +32,10 @@ class ClientFunc
 
         m_f(path)
         .then(function (response) {
-            setFunc(response.data);
+            if (response.data.success)
+            {
+                setFunc(response.data.data);
+            }
         })
         .catch(function(error) {
            ClientFunc.log(error);

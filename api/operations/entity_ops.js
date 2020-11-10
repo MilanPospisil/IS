@@ -6,7 +6,7 @@ const {Filter} = require("../filter.js");
 
 class Entity_ops {
     
-    static entity_names = ["Item_type"];
+    static entity_names = ["item_type"];
     
     static entities = {};
 
@@ -15,15 +15,11 @@ class Entity_ops {
         for(e in Entity_ops.entity_names)
         {
             var e = Entity_ops.entity_names[e];
-            var e2 = e.toLowerCase();
-            var path = "./" + e2 + ".js";
+            var path = "./" + e + ".js";
             console.log("loading path " + path);
             var lib = require(path);
             var ent = lib[e];
             this.entities[e] = ent;
-
-            // create if available
-            if (ent.create) ent.create();
         }
     }
 
@@ -69,7 +65,7 @@ class Entity_ops {
                 Func.json(res, a);
             }else
             {
-                var obj = {success : true, data : a.rows, metadata : a.fields};
+                var obj = {success : true, data : a};
                 Func.json(res, obj); 
             }
         })
