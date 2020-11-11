@@ -1,5 +1,6 @@
 
 const { Func } = require('./func.js');
+const { Error } = require('./error.js');
 
 class Filter {
     /*
@@ -24,18 +25,13 @@ class Filter {
             // check select
             if (select == null || select.length == 0) {
                 // add all columns
-                select = [];
-                for (var f in entity_schema)
-                {
-                    var f = entity_schema[f];
-                    select.push(f);
-                }
+                select = Object.keys(entity_schema);
             }
 
             for (var c in select) {
                 c = select[c];
                 if (!entity_schema[c]) {
-                    return { success: false, error: "field " + s + " is not in entity schema." };
+                    return Error.error("field " + s + " is not in entity schema.");
                 }
             }
 
@@ -46,18 +42,18 @@ class Filter {
                 c = order_by[c];
                 if (c[0] == '-') c = c.substring(1, c.length);
                 if (!entity_schema[c]) {
-                    return { success: false, error: "field " + s + " is not in entity schema." };
+                    return Error.error("field " + s + " is not in entity schema.");
                 }
             }
 
             // check paging
             if (paging) {
                 if (paging.offset && !Number.isInteger(paging.offset)) {
-                    return { success: false, error: "page offset is not number." };
+                    return Error.error("page offset is not number.");
                 }
 
                 if (paging.limit && !Number.isInteger(paging.limit)) {
-                    return { success: false, error: "page limit is not number." };
+                    return Error.error("page limit is not number.");
                 }
             }
 

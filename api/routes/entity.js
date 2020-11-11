@@ -6,7 +6,6 @@ var {Entity_ops} = require('../operations/entity_ops.js');
 var { connection } = require('../connection.js');
 
 router.get('/', function(req, res, next) {
-    debugger;
     //Func.json(res, {text : "JOOOO"});
     Entity_ops.run(connection.client, req, res, "get");
 });

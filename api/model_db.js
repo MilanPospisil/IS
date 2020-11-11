@@ -134,8 +134,10 @@ class ModelDb {
 	static getFieldType(type)
 	{
 		if (type == "text") return "text";
-		if (type == "int") return "integer";
+		if (type == "integer") return "integer";
 		if (type == "bigint") return "bigint";
+		if (type == "boolean") return "boolean";
+		if (type == "numeric") return "numeric";
 	}
 };
 

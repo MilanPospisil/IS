@@ -7,11 +7,12 @@ const { model } = require("./../model/model.js");
 
 class Item_type {
     ops = ["metadata", "get", "update", "insert", "delete"];
+    entity = model.entities.item_type;
 
     get(client, user, user_role, query, post) {
         if (user_role != "admin") return Error.no_privilleges();
         var inner_query = "SELECT * FROM item_type";
-        return Filter.filter(client, query, inner_query, [], Item_type.fields);
+        return Filter.filter(client, query, inner_query, [], this.entity.fields);
     }
 
     update(client, user, user_role, query, post) {
@@ -32,7 +33,7 @@ class Item_type {
     metadata(client, user, user_role)
     {
         if (user_role != "admin") return Error.no_privilleges();
-        return Promise.resolve(model.entities.item_type);    
+        return Promise.resolve(this.entity);    
     }
 }
 
