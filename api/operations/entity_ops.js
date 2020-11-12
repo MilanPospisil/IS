@@ -35,8 +35,14 @@ class Entity_ops {
         var entity_name = params["entity_name"];
         var entity_operation = params["entity_operation"];
         var query = params["query"];
-        if (!query) query = {};
-
+        if (!query) 
+        {
+            query = {};
+        }
+        else
+        {
+            query = JSON.parse(query);
+        }
         // validate entity name
         if (!Entity_ops.entity_names.includes(entity_name))
         {

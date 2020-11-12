@@ -55,9 +55,8 @@ class ClientFunc
 
     static entity_op(setFunc, dependencies, allowed, entity_name, entity_operation, query, method)
     {
-        
         var path = "/entity?entity_name="+entity_name+"&entity_operation="+entity_operation;
-        if (query) path += "&query="+query;
+        if (query) path += "&query="+JSON.stringify(query);
         this.readUseEffect(path, setFunc, dependencies, allowed, method);
     }
 }

@@ -1,0 +1,1099 @@
+Promise for amount_type + created
+Starting promise chain for entity amount_type
+SELECT * FROM amount_type
+Promise for item_type + created
+SELECT * FROM item_type
+Starting promise chain for entity item_type
+Promise for app_user + created
+Starting promise chain for entity app_user
+Promise for role_type + created
+Starting promise chain for entity role_type
+SELECT * FROM role_type
+Promise for ingredients + created
+Starting promise chain for entity ingredients
+SELECT * FROM ingredients
+SELECT * FROM app_user
+Promise for store + created
+Starting promise chain for entity store
+SELECT * FROM store
+Promise for order + created
+Starting promise chain for entity order
+Promise for order_item + created
+SELECT * FROM order
+Starting promise chain for entity order_item
+SELECT * FROM order_item
+Succesful: SELECT * FROM amount_type
+SELECT * FROM amount_type LIMIT 1 
+table item_type is present
+SELECT * FROM item_type LIMIT 1 
+table amount_type is present
+Succesful: SELECT * FROM item_type
+Succesful: SELECT * FROM app_user
+table app_user is present
+SELECT * FROM app_user LIMIT 1 
+Succesful: SELECT * FROM role_type
+table role_type is present
+SELECT * FROM role_type LIMIT 1 
+Succesful: SELECT * FROM ingredients
+table ingredients is present
+SELECT * FROM ingredients LIMIT 1 
+Succesful: SELECT * FROM store
+table store is present
+SELECT * FROM store LIMIT 1 
+Failed: SELECT * FROM order
+table order is not present
+CREATE TABLE order();
+Succesful: SELECT * FROM order_item
+table order_item is present
+SELECT * FROM order_item LIMIT 1 
+Succesful: SELECT * FROM amount_type LIMIT 1 
+Now firing alter table for amount_type
+field name = undefined
+Calling alter table for name
+ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM item_type LIMIT 1 
+Now firing alter table for item_type
+field id = undefined
+field name = undefined
+field is_sellable = undefined
+field amount_type = undefined
+field buy_cost = undefined
+field sell_price = undefined
+Calling alter table for id
+ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM app_user LIMIT 1 
+Now firing alter table for app_user
+field id = undefined
+field name = undefined
+field password = undefined
+field email = undefined
+field phone = undefined
+field role = undefined
+field address = undefined
+field full_name = undefined
+Calling alter table for id
+ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM role_type LIMIT 1 
+Now firing alter table for role_type
+field name = undefined
+Calling alter table for name
+ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM ingredients LIMIT 1 
+Now firing alter table for ingredients
+field id = undefined
+field item_in = undefined
+field item_out = undefined
+field amount = undefined
+Calling alter table for id
+ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM store LIMIT 1 
+Now firing alter table for store
+field id = undefined
+field item_type = undefined
+field amount = undefined
+field expiration_date = undefined
+Calling alter table for id
+ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Failed: CREATE TABLE order();
+Table order failed in creation
+SELECT * FROM order LIMIT 1 
+Succesful: SELECT * FROM order_item LIMIT 1 
+Now firing alter table for order_item
+field id = undefined
+field order = undefined
+field item = undefined
+field cost = undefined
+field amount = undefined
+Calling alter table for id
+ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity amount_type at field name
+Failed: ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+All alter tables resolved for entity amount_type
+Failed: ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Calling alter table for name
+Alter table failed for entity item_type at field id
+ALTER TABLE item_type ADD COLUMN name text
+Failed: ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity app_user at field id
+Calling alter table for name
+ALTER TABLE app_user ADD COLUMN name text
+Failed: ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+All alter tables resolved for entity role_type
+Alter table failed for entity role_type at field name
+Failed: ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity ingredients at field id
+Calling alter table for item_in
+ALTER TABLE ingredients ADD COLUMN item_in integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity store at field id
+ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Calling alter table for item_type
+Failed: SELECT * FROM order LIMIT 1 
+Failed: undefined
+Now firing alter table for order
+Failed: ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity order_item at field id
+Calling alter table for order
+ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN name text
+Alter table failed for entity item_type at field name
+Calling alter table for is_sellable
+ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Failed: ALTER TABLE app_user ADD COLUMN name text
+Alter table failed for entity app_user at field name
+Calling alter table for password
+ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity ingredients at field item_in
+Calling alter table for item_out
+ALTER TABLE ingredients ADD COLUMN item_out integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity store at field item_type
+Calling alter table for amount
+ALTER TABLE store ADD COLUMN amount numeric
+Failed: ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Alter table failed for entity order_item at field order
+Calling alter table for item
+ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Alter table failed for entity item_type at field is_sellable
+Calling alter table for amount_type
+ALTER TABLE item_type ADD COLUMN amount_type text REFERENCES amount_type(name) ON DELETE cascade
+Failed: ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity app_user at field password
+Calling alter table for email
+ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity ingredients at field item_out
+ALTER TABLE ingredients ADD COLUMN amount numeric
+Calling alter table for amount
+Failed: ALTER TABLE store ADD COLUMN amount numeric
+Alter table failed for entity store at field amount
+ALTER TABLE store ADD COLUMN expiration_date undefined
+Calling alter table for expiration_date
+Failed: ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity order_item at field item
+Calling alter table for cost
+ALTER TABLE order_item ADD COLUMN cost numeric
+Calling alter table for buy_cost
+Alter table failed for entity item_type at field amount_type
+ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Failed: ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity app_user at field email
+Calling alter table for phone
+ALTER TABLE app_user ADD COLUMN phone text
+Failed: ALTER TABLE ingredients ADD COLUMN amount numeric
+All alter tables resolved for entity ingredients
+Alter table failed for entity ingredients at field amount
+Alter table failed for entity store at field expiration_date
+Failed: ALTER TABLE store ADD COLUMN expiration_date undefined
+All alter tables resolved for entity store
+Failed: ALTER TABLE order_item ADD COLUMN cost numeric
+Alter table failed for entity order_item at field cost
+Calling alter table for amount
+ALTER TABLE order_item ADD COLUMN amount numeric
+Failed: ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Alter table failed for entity item_type at field buy_cost
+Calling alter table for sell_price
+ALTER TABLE item_type ADD COLUMN sell_price numeric
+Failed: ALTER TABLE app_user ADD COLUMN phone text
+Alter table failed for entity app_user at field phone
+Calling alter table for role
+ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Failed: ALTER TABLE order_item ADD COLUMN amount numeric
+Alter table failed for entity order_item at field amount
+All alter tables resolved for entity order_item
+Failed: ALTER TABLE item_type ADD COLUMN sell_price numeric
+Alter table failed for entity item_type at field sell_price
+All alter tables resolved for entity item_type
+Failed: ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Alter table failed for entity app_user at field role
+Calling alter table for address
+ALTER TABLE app_user ADD COLUMN address text
+Failed: ALTER TABLE app_user ADD COLUMN address text
+Calling alter table for full_name
+Alter table failed for entity app_user at field address
+ALTER TABLE app_user ADD COLUMN full_name text
+Failed: ALTER TABLE app_user ADD COLUMN full_name text
+Alter table failed for entity app_user at field full_name
+All alter tables resolved for entity app_user
+All promises fired
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+Promise for amount_type + created
+SELECT * FROM amount_type
+Starting promise chain for entity amount_type
+Promise for item_type + created
+Starting promise chain for entity item_type
+Promise for app_user + created
+SELECT * FROM item_type
+Starting promise chain for entity app_user
+SELECT * FROM app_user
+Promise for role_type + created
+Starting promise chain for entity role_type
+SELECT * FROM role_type
+Promise for ingredients + created
+Starting promise chain for entity ingredients
+SELECT * FROM ingredients
+Promise for store + created
+Starting promise chain for entity store
+SELECT * FROM store
+Promise for order + created
+Starting promise chain for entity order
+SELECT * FROM order
+Promise for order_item + created
+Starting promise chain for entity order_item
+SELECT * FROM order_item
+Succesful: SELECT * FROM amount_type
+table amount_type is present
+SELECT * FROM amount_type LIMIT 1 
+Succesful: SELECT * FROM item_type
+table item_type is present
+SELECT * FROM item_type LIMIT 1 
+Succesful: SELECT * FROM app_user
+SELECT * FROM app_user LIMIT 1 
+table app_user is present
+Succesful: SELECT * FROM role_type
+table role_type is present
+SELECT * FROM role_type LIMIT 1 
+Succesful: SELECT * FROM ingredients
+table ingredients is present
+SELECT * FROM ingredients LIMIT 1 
+Succesful: SELECT * FROM store
+table store is present
+SELECT * FROM store LIMIT 1 
+Failed: SELECT * FROM order
+table order is not present
+CREATE TABLE order();
+Succesful: SELECT * FROM order_item
+table order_item is present
+SELECT * FROM order_item LIMIT 1 
+Succesful: SELECT * FROM amount_type LIMIT 1 
+field name = undefined
+Now firing alter table for amount_type
+Calling alter table for name
+ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM item_type LIMIT 1 
+Now firing alter table for item_type
+field id = undefined
+field name = undefined
+field is_sellable = undefined
+field amount_type = undefined
+field buy_cost = undefined
+field sell_price = undefined
+Calling alter table for id
+ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM app_user LIMIT 1 
+Now firing alter table for app_user
+field id = undefined
+field name = undefined
+field password = undefined
+field email = undefined
+field phone = undefined
+field role = undefined
+field address = undefined
+field full_name = undefined
+Calling alter table for id
+ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM role_type LIMIT 1 
+Now firing alter table for role_type
+field name = undefined
+Calling alter table for name
+ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM ingredients LIMIT 1 
+Now firing alter table for ingredients
+field id = undefined
+field item_in = undefined
+field item_out = undefined
+field amount = undefined
+Calling alter table for id
+ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM store LIMIT 1 
+Now firing alter table for store
+field id = undefined
+field item_type = undefined
+field amount = undefined
+field expiration_date = undefined
+Calling alter table for id
+ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Failed: CREATE TABLE order();
+Table order failed in creation
+Succesful: SELECT * FROM order_item LIMIT 1 
+Now firing alter table for order_item
+SELECT * FROM order LIMIT 1 
+field order = undefined
+field id = undefined
+field item = undefined
+field cost = undefined
+field amount = undefined
+Calling alter table for id
+ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Failed: ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Alter table failed for entity amount_type at field name
+All alter tables resolved for entity amount_type
+Failed: ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity item_type at field id
+Calling alter table for name
+ALTER TABLE item_type ADD COLUMN name text
+Failed: ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity app_user at field id
+Calling alter table for name
+ALTER TABLE app_user ADD COLUMN name text
+Failed: ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+Alter table failed for entity role_type at field name
+All alter tables resolved for entity role_type
+Alter table failed for entity ingredients at field id
+Failed: ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Calling alter table for item_in
+ALTER TABLE ingredients ADD COLUMN item_in integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Calling alter table for item_type
+Alter table failed for entity store at field id
+ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Failed: undefined
+Failed: SELECT * FROM order LIMIT 1 
+Now firing alter table for order
+Failed: ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity order_item at field id
+ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Calling alter table for order
+Failed: ALTER TABLE item_type ADD COLUMN name text
+Alter table failed for entity item_type at field name
+Calling alter table for is_sellable
+ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Failed: ALTER TABLE app_user ADD COLUMN name text
+Alter table failed for entity app_user at field name
+Calling alter table for password
+ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity ingredients at field item_in
+ALTER TABLE ingredients ADD COLUMN item_out integer REFERENCES item_type(id) ON DELETE cascade
+Calling alter table for item_out
+Failed: ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity store at field item_type
+Calling alter table for amount
+ALTER TABLE store ADD COLUMN amount numeric
+Failed: ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Alter table failed for entity order_item at field order
+Calling alter table for item
+ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Calling alter table for amount_type
+Alter table failed for entity item_type at field is_sellable
+ALTER TABLE item_type ADD COLUMN amount_type text REFERENCES amount_type(name) ON DELETE cascade
+Failed: ALTER TABLE app_user ADD COLUMN password text
+Calling alter table for email
+Alter table failed for entity app_user at field password
+ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity ingredients at field item_out
+Calling alter table for amount
+ALTER TABLE ingredients ADD COLUMN amount numeric
+Failed: ALTER TABLE store ADD COLUMN amount numeric
+Alter table failed for entity store at field amount
+ALTER TABLE store ADD COLUMN expiration_date undefined
+Calling alter table for expiration_date
+Failed: ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Calling alter table for cost
+Alter table failed for entity order_item at field item
+ALTER TABLE order_item ADD COLUMN cost numeric
+Alter table failed for entity item_type at field amount_type
+Calling alter table for buy_cost
+ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Failed: ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity app_user at field email
+Calling alter table for phone
+ALTER TABLE app_user ADD COLUMN phone text
+Failed: ALTER TABLE ingredients ADD COLUMN amount numeric
+Alter table failed for entity ingredients at field amount
+All alter tables resolved for entity ingredients
+Failed: ALTER TABLE store ADD COLUMN expiration_date undefined
+Alter table failed for entity store at field expiration_date
+All alter tables resolved for entity store
+Failed: ALTER TABLE order_item ADD COLUMN cost numeric
+Alter table failed for entity order_item at field cost
+Calling alter table for amount
+ALTER TABLE order_item ADD COLUMN amount numeric
+Failed: ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Alter table failed for entity item_type at field buy_cost
+Calling alter table for sell_price
+ALTER TABLE item_type ADD COLUMN sell_price numeric
+Failed: ALTER TABLE app_user ADD COLUMN phone text
+Alter table failed for entity app_user at field phone
+Calling alter table for role
+ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Failed: ALTER TABLE order_item ADD COLUMN amount numeric
+Alter table failed for entity order_item at field amount
+All alter tables resolved for entity order_item
+Failed: ALTER TABLE item_type ADD COLUMN sell_price numeric
+Alter table failed for entity item_type at field sell_price
+All alter tables resolved for entity item_type
+Failed: ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Alter table failed for entity app_user at field role
+ALTER TABLE app_user ADD COLUMN address text
+Calling alter table for address
+Failed: ALTER TABLE app_user ADD COLUMN address text
+Calling alter table for full_name
+Alter table failed for entity app_user at field address
+ALTER TABLE app_user ADD COLUMN full_name text
+Failed: ALTER TABLE app_user ADD COLUMN full_name text
+Alter table failed for entity app_user at field full_name
+All alter tables resolved for entity app_user
+All promises fired
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+
+
+
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+
+
+
+
+
+
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Promise for amount_type + created
+Starting promise chain for entity amount_type
+SELECT * FROM amount_type
+Promise for item_type + created
+Starting promise chain for entity item_type
+SELECT * FROM item_type
+Promise for app_user + created
+Starting promise chain for entity app_user
+SELECT * FROM app_user
+Promise for role_type + created
+Starting promise chain for entity role_type
+SELECT * FROM role_type
+Promise for ingredients + created
+Starting promise chain for entity ingredients
+SELECT * FROM ingredients
+Promise for store + created
+Starting promise chain for entity store
+SELECT * FROM store
+Promise for order + created
+Starting promise chain for entity order
+SELECT * FROM order
+Promise for order_item + created
+Starting promise chain for entity order_item
+SELECT * FROM order_item
+Succesful: SELECT * FROM amount_type
+table amount_type is present
+Succesful: SELECT * FROM item_type
+SELECT * FROM amount_type LIMIT 1 
+table item_type is present
+SELECT * FROM item_type LIMIT 1 
+Succesful: SELECT * FROM app_user
+table app_user is present
+SELECT * FROM app_user LIMIT 1 
+Succesful: SELECT * FROM role_type
+table role_type is present
+SELECT * FROM role_type LIMIT 1 
+Succesful: SELECT * FROM ingredients
+table ingredients is present
+SELECT * FROM ingredients LIMIT 1 
+Succesful: SELECT * FROM store
+table store is present
+SELECT * FROM store LIMIT 1 
+Failed: SELECT * FROM order
+CREATE TABLE order();
+table order is not present
+Succesful: SELECT * FROM order_item
+table order_item is present
+SELECT * FROM order_item LIMIT 1 
+Succesful: SELECT * FROM amount_type LIMIT 1 
+Now firing alter table for amount_type
+field name = undefined
+Calling alter table for name
+ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM item_type LIMIT 1 
+Now firing alter table for item_type
+field id = undefined
+field name = undefined
+field is_sellable = undefined
+field amount_type = undefined
+field buy_cost = undefined
+field sell_price = undefined
+Calling alter table for id
+ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM app_user LIMIT 1 
+Now firing alter table for app_user
+field id = undefined
+field name = undefined
+field password = undefined
+field email = undefined
+field phone = undefined
+field role = undefined
+field address = undefined
+field full_name = undefined
+Calling alter table for id
+ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM role_type LIMIT 1 
+Now firing alter table for role_type
+field name = undefined
+Calling alter table for name
+ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM ingredients LIMIT 1 
+Now firing alter table for ingredients
+field id = undefined
+field item_out = undefined
+field item_in = undefined
+field amount = undefined
+Calling alter table for id
+ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM store LIMIT 1 
+Now firing alter table for store
+field item_type = undefined
+field id = undefined
+field amount = undefined
+field expiration_date = undefined
+Calling alter table for id
+ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Failed: CREATE TABLE order();
+Table order failed in creation
+SELECT * FROM order LIMIT 1 
+Succesful: SELECT * FROM order_item LIMIT 1 
+Now firing alter table for order_item
+field id = undefined
+field order = undefined
+field item = undefined
+field cost = undefined
+Calling alter table for id
+field amount = undefined
+ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity amount_type at field name
+All alter tables resolved for entity amount_type
+Failed: ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Failed: ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity item_type at field id
+Calling alter table for name
+ALTER TABLE item_type ADD COLUMN name text
+Failed: ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity app_user at field id
+Calling alter table for name
+ALTER TABLE app_user ADD COLUMN name text
+Failed: ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+All alter tables resolved for entity role_type
+Alter table failed for entity role_type at field name
+Failed: ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+ALTER TABLE ingredients ADD COLUMN item_in integer REFERENCES item_type(id) ON DELETE cascade
+Calling alter table for item_in
+Alter table failed for entity ingredients at field id
+Failed: ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity store at field id
+Calling alter table for item_type
+ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Failed: SELECT * FROM order LIMIT 1 
+Failed: undefined
+Now firing alter table for order
+Failed: ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity order_item at field id
+Calling alter table for order
+ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN name text
+Alter table failed for entity item_type at field name
+Calling alter table for is_sellable
+ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Failed: ALTER TABLE app_user ADD COLUMN name text
+Alter table failed for entity app_user at field name
+Calling alter table for password
+ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity ingredients at field item_in
+Calling alter table for item_out
+ALTER TABLE ingredients ADD COLUMN item_out integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity store at field item_type
+Calling alter table for amount
+ALTER TABLE store ADD COLUMN amount numeric
+Failed: ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Alter table failed for entity order_item at field order
+Calling alter table for item
+ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Alter table failed for entity item_type at field is_sellable
+Calling alter table for amount_type
+ALTER TABLE item_type ADD COLUMN amount_type text REFERENCES amount_type(name) ON DELETE cascade
+Failed: ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity app_user at field password
+ALTER TABLE app_user ADD COLUMN email text
+Calling alter table for email
+Alter table failed for entity ingredients at field item_out
+Calling alter table for amount
+ALTER TABLE ingredients ADD COLUMN amount numeric
+Failed: ALTER TABLE store ADD COLUMN amount numeric
+Calling alter table for expiration_date
+Alter table failed for entity store at field amount
+ALTER TABLE store ADD COLUMN expiration_date undefined
+Failed: ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity order_item at field item
+Calling alter table for cost
+ALTER TABLE order_item ADD COLUMN cost numeric
+Alter table failed for entity item_type at field amount_type
+Calling alter table for buy_cost
+ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Failed: ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity app_user at field email
+Calling alter table for phone
+ALTER TABLE app_user ADD COLUMN phone text
+Failed: ALTER TABLE ingredients ADD COLUMN amount numeric
+All alter tables resolved for entity ingredients
+Alter table failed for entity ingredients at field amount
+Alter table failed for entity store at field expiration_date
+Failed: ALTER TABLE store ADD COLUMN expiration_date undefined
+All alter tables resolved for entity store
+Failed: ALTER TABLE order_item ADD COLUMN cost numeric
+Calling alter table for amount
+Alter table failed for entity order_item at field cost
+ALTER TABLE order_item ADD COLUMN amount numeric
+Alter table failed for entity item_type at field buy_cost
+Failed: ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Calling alter table for sell_price
+ALTER TABLE item_type ADD COLUMN sell_price numeric
+Failed: ALTER TABLE app_user ADD COLUMN phone text
+Alter table failed for entity app_user at field phone
+Calling alter table for role
+ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Failed: ALTER TABLE order_item ADD COLUMN amount numeric
+Alter table failed for entity order_item at field amount
+All alter tables resolved for entity order_item
+Failed: ALTER TABLE item_type ADD COLUMN sell_price numeric
+Alter table failed for entity item_type at field sell_price
+All alter tables resolved for entity item_type
+Failed: ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Alter table failed for entity app_user at field role
+Calling alter table for address
+ALTER TABLE app_user ADD COLUMN address text
+Failed: ALTER TABLE app_user ADD COLUMN address text
+Alter table failed for entity app_user at field address
+ALTER TABLE app_user ADD COLUMN full_name text
+Calling alter table for full_name
+Alter table failed for entity app_user at field full_name
+All promises fired
+Failed: ALTER TABLE app_user ADD COLUMN full_name text
+All alter tables resolved for entity app_user
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+
+
+
+
+
+
+
+
+
+
+Promise for amount_type + created
+Starting promise chain for entity amount_type
+SELECT * FROM amount_type
+Promise for item_type + created
+Starting promise chain for entity item_type
+SELECT * FROM item_type
+Promise for app_user + created
+Starting promise chain for entity app_user
+SELECT * FROM app_user
+Promise for role_type + created
+Starting promise chain for entity role_type
+Promise for ingredients + created
+Starting promise chain for entity ingredients
+SELECT * FROM role_type
+SELECT * FROM ingredients
+Promise for store + created
+Starting promise chain for entity store
+SELECT * FROM store
+Promise for order + created
+Starting promise chain for entity order
+SELECT * FROM order
+Promise for order_item + created
+Starting promise chain for entity order_item
+SELECT * FROM order_item
+Succesful: SELECT * FROM amount_type
+SELECT * FROM amount_type LIMIT 1 
+Succesful: SELECT * FROM item_type
+table amount_type is present
+table item_type is present
+SELECT * FROM item_type LIMIT 1 
+Succesful: SELECT * FROM app_user
+table app_user is present
+SELECT * FROM app_user LIMIT 1 
+Succesful: SELECT * FROM role_type
+table role_type is present
+SELECT * FROM role_type LIMIT 1 
+Succesful: SELECT * FROM ingredients
+table ingredients is present
+SELECT * FROM ingredients LIMIT 1 
+Succesful: SELECT * FROM store
+table store is present
+SELECT * FROM store LIMIT 1 
+Failed: SELECT * FROM order
+CREATE TABLE order();
+table order is not present
+Succesful: SELECT * FROM order_item
+table order_item is present
+SELECT * FROM order_item LIMIT 1 
+Succesful: SELECT * FROM amount_type LIMIT 1 
+Now firing alter table for amount_type
+Calling alter table for name
+field name = undefined
+ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM item_type LIMIT 1 
+Now firing alter table for item_type
+field id = undefined
+field name = undefined
+field is_sellable = undefined
+field amount_type = undefined
+field buy_cost = undefined
+field sell_price = undefined
+Calling alter table for id
+ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM app_user LIMIT 1 
+Now firing alter table for app_user
+field id = undefined
+field name = undefined
+field password = undefined
+field email = undefined
+field phone = undefined
+field role = undefined
+field address = undefined
+field full_name = undefined
+Calling alter table for id
+ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Succesful: SELECT * FROM role_type LIMIT 1 
+Now firing alter table for role_type
+field name = undefined
+Calling alter table for name
+ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+Succesful: SELECT * FROM ingredients LIMIT 1 
+Now firing alter table for ingredients
+field id = undefined
+field item_in = undefined
+field item_out = undefined
+field amount = undefined
+ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Calling alter table for id
+Succesful: SELECT * FROM store LIMIT 1 
+Now firing alter table for store
+field id = undefined
+field item_type = undefined
+field amount = undefined
+field expiration_date = undefined
+Calling alter table for id
+ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Failed: CREATE TABLE order();
+SELECT * FROM order LIMIT 1 
+Table order failed in creation
+Succesful: SELECT * FROM order_item LIMIT 1 
+Now firing alter table for order_item
+field id = undefined
+field order = undefined
+field item = undefined
+field cost = undefined
+field amount = undefined
+Calling alter table for id
+ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Failed: ALTER TABLE amount_type ADD COLUMN name text PRIMARY KEY 
+Alter table failed for entity amount_type at field name
+All alter tables resolved for entity amount_type
+Alter table failed for entity item_type at field id
+Failed: ALTER TABLE item_type ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Calling alter table for name
+ALTER TABLE item_type ADD COLUMN name text
+Failed: ALTER TABLE app_user ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity app_user at field id
+Calling alter table for name
+ALTER TABLE app_user ADD COLUMN name text
+Failed: ALTER TABLE role_type ADD COLUMN name text PRIMARY KEY 
+Alter table failed for entity role_type at field name
+All alter tables resolved for entity role_type
+Failed: ALTER TABLE ingredients ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity ingredients at field id
+Calling alter table for item_in
+ALTER TABLE ingredients ADD COLUMN item_in integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE store ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity store at field id
+Calling alter table for item_type
+ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Failed: SELECT * FROM order LIMIT 1 
+Failed: undefined
+Now firing alter table for order
+Failed: ALTER TABLE order_item ADD COLUMN id  SERIAL NOT NULL  PRIMARY KEY 
+Alter table failed for entity order_item at field id
+Calling alter table for order
+ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN name text
+Alter table failed for entity item_type at field name
+Calling alter table for is_sellable
+ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Failed: ALTER TABLE app_user ADD COLUMN name text
+Alter table failed for entity app_user at field name
+Calling alter table for password
+ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity ingredients at field item_in
+Calling alter table for item_out
+ALTER TABLE ingredients ADD COLUMN item_out integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE store ADD COLUMN item_type integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity store at field item_type
+Calling alter table for amount
+ALTER TABLE store ADD COLUMN amount numeric
+Failed: ALTER TABLE order_item ADD COLUMN order integer REFERENCES order(id) ON DELETE cascade
+Alter table failed for entity order_item at field order
+Calling alter table for item
+ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Failed: ALTER TABLE item_type ADD COLUMN is_sellable boolean
+Alter table failed for entity item_type at field is_sellable
+ALTER TABLE item_type ADD COLUMN amount_type text REFERENCES amount_type(name) ON DELETE cascade
+Calling alter table for amount_type
+Failed: ALTER TABLE app_user ADD COLUMN password text
+Alter table failed for entity app_user at field password
+Calling alter table for email
+ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity ingredients at field item_out
+ALTER TABLE ingredients ADD COLUMN amount numeric
+Calling alter table for amount
+Failed: ALTER TABLE store ADD COLUMN amount numeric
+Alter table failed for entity store at field amount
+Calling alter table for expiration_date
+ALTER TABLE store ADD COLUMN expiration_date undefined
+Failed: ALTER TABLE order_item ADD COLUMN item integer REFERENCES item_type(id) ON DELETE cascade
+Alter table failed for entity order_item at field item
+Calling alter table for cost
+ALTER TABLE order_item ADD COLUMN cost numeric
+Alter table failed for entity item_type at field amount_type
+ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Calling alter table for buy_cost
+Failed: ALTER TABLE app_user ADD COLUMN email text
+Alter table failed for entity app_user at field email
+Calling alter table for phone
+ALTER TABLE app_user ADD COLUMN phone text
+Failed: ALTER TABLE ingredients ADD COLUMN amount numeric
+Alter table failed for entity ingredients at field amount
+All alter tables resolved for entity ingredients
+Failed: ALTER TABLE store ADD COLUMN expiration_date undefined
+Alter table failed for entity store at field expiration_date
+All alter tables resolved for entity store
+Failed: ALTER TABLE order_item ADD COLUMN cost numeric
+Alter table failed for entity order_item at field cost
+Calling alter table for amount
+ALTER TABLE order_item ADD COLUMN amount numeric
+Failed: ALTER TABLE item_type ADD COLUMN buy_cost numeric
+Alter table failed for entity item_type at field buy_cost
+Calling alter table for sell_price
+ALTER TABLE item_type ADD COLUMN sell_price numeric
+Failed: ALTER TABLE app_user ADD COLUMN phone text
+Alter table failed for entity app_user at field phone
+ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Calling alter table for role
+Failed: ALTER TABLE order_item ADD COLUMN amount numeric
+Alter table failed for entity order_item at field amount
+All alter tables resolved for entity order_item
+Failed: ALTER TABLE item_type ADD COLUMN sell_price numeric
+Alter table failed for entity item_type at field sell_price
+All alter tables resolved for entity item_type
+Failed: ALTER TABLE app_user ADD COLUMN role text REFERENCES role_type(name) ON DELETE cascade
+Alter table failed for entity app_user at field role
+Calling alter table for address
+ALTER TABLE app_user ADD COLUMN address text
+Failed: ALTER TABLE app_user ADD COLUMN address text
+Alter table failed for entity app_user at field address
+Calling alter table for full_name
+ALTER TABLE app_user ADD COLUMN full_name text
+Failed: ALTER TABLE app_user ADD COLUMN full_name text
+Alter table failed for entity app_user at field full_name
+All promises fired
+All alter tables resolved for entity app_user
+SELECT * FROM app_user WHERE name = $1 AND password = $2
+arkanus@seznam.cz,c55e0976a4f45ced356f8775d550307e
+Succesful: SELECT * FROM app_user WHERE name = $1 AND password = $2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
